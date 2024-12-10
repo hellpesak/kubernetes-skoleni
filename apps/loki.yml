@@ -14,7 +14,7 @@ spec:
     path: loki
   destination:
     name: in-cluster
-    namespace: argo
+    namespace: loki
   syncPolicy:
     syncOptions:
     - Validate=true
