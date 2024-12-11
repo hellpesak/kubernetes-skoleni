@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-workflows
+  namespace: argo
+  labels:
+    cluster: c0
+    app: argo-workflows
+spec:
+  project: default
+  source:
+    repoURL: http://your-repository
+    targetRevision: HEAD
+    path: argo/cd
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
